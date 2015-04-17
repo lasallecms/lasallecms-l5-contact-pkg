@@ -1,4 +1,4 @@
-# USER MANAGEMENT
+# CONTACT FORM
 
 [![Build Status](https://img.shields.io/travis/lasallecms/lasallecms-l5-contact-pkg/master.svg?style=flat-square)](https://travis-ci.org/lasallecms/lasallecms-l5-contact-pkg)
 [![Total Downloads](https://img.shields.io/packagist/dt/lasallecms/contact.svg?style=flat-square)](https://packagist.org/packages/lasallecms/contact)
