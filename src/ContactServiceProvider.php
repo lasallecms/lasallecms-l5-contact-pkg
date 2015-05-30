@@ -64,7 +64,7 @@ class ContactServiceProvider extends ServiceProvider {
 
         //$this->setupAssets();
 
-        //$this->setupMigrations();
+        $this->setupMigrations();
         //$this->setupSeeds();
     }
 
