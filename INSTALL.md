@@ -19,7 +19,7 @@ Contact form for LaSalle Content Management System
 
 In config/app.php:
 ```
-'Lasallecms\Contact\ContactServiceProvider',
+Lasallecms\Contact\ContactServiceProvider::class,
 ```
 
 
