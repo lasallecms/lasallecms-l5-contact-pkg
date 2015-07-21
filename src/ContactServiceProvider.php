@@ -54,7 +54,7 @@ class ContactServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        //$this->setupConfiguration();
+        $this->setupConfiguration();
 
         $this->setupRoutes($this->app->router);
 
@@ -64,7 +64,7 @@ class ContactServiceProvider extends ServiceProvider {
 
         //$this->setupAssets();
 
-        $this->setupMigrations();
+        //$this->setupMigrations();
         //$this->setupSeeds();
     }
 
@@ -163,7 +163,7 @@ class ContactServiceProvider extends ServiceProvider {
      */
     public function setupViews()
     {
-        $this->loadViewsFrom(__DIR__.'/../views', 'contact');
+        $this->loadViewsFrom(__DIR__.'/../views', 'lasallecmscontact');
 
         $this->publishes([
             __DIR__.'/../views' => base_path('resources/views/vendor/lasallecmscontact'),

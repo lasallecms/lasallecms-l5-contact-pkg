@@ -29,29 +29,26 @@
  */
 
 
-Route::get('/contact', [
+Route::get('contact/contact', [
     'as'   => 'contact',
-    'uses' => 'Lasallecms\Contact\ContactController@index'
-]);
-
-Route::post('contact-step-two', [
-    'as'   => 'contact.step-two',
-    'uses' => 'Lasallecms\Contact\ContactController@steptwo'
-]);
-
-Route::post('contact-send', [
-    'as'   => 'contact.post',
-    'uses' => 'Lasallecms\Contact\ContactController@send'
+    'uses' => 'ContactController@index'
 ]);
 
 
-Route::get('contactsecuritycodefailed',[
-    'as'   => 'contact.securitycodefailed',
-    'uses' => 'Lasallecms\Contact\ContactController@securitycodefailed'
+
+Route::post('contact-processing/contact-step-two', [
+    'as'   => 'contact-processing.step-two',
+    'uses' => 'ContactController@steptwo'
 ]);
 
-Route::get('contactthankyou',[
-    'as'   => 'contact.thankyou',
-    'uses' => 'Lasallecms\Contact\ContactController@thankyou'
+Route::post('contact-processing/contact-send', [
+    'as'   => 'contact-processing.send',
+    'uses' => 'ContactController@send'
+]);
+
+
+Route::get('contact-processing/contactthankyou',[
+    'as'   => 'contact-processing.thankyou',
+    'uses' => 'ContactController@thankyou'
 ]);
 

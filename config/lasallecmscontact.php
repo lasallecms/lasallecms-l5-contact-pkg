@@ -33,17 +33,58 @@
 return [
 
     /*
-	|--------------------------------------------------------------------------
-	| Config Setting
-	|--------------------------------------------------------------------------
-	|
-	| Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-    | ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-    | dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
-	|
-	*/
+   |--------------------------------------------------------------------------
+   | FROM email
+   |--------------------------------------------------------------------------
+   |
+   | Who is sending the contact email?
+   |
+   |
+   */
+    'from_email' => 'info@southlasalle.com',
+    'from_name'  => 'SouthLaSalle',
 
-    'config_key' => 'config_value',
+
+    /*
+    |--------------------------------------------------------------------------
+    | TO email
+    |--------------------------------------------------------------------------
+    |
+    | Who is receiving the contact email?
+    | Right now, just one recipient can get the contact email.
+    |
+    |
+    */
+    'to_email' => 'info@southlasalle.com',
+    'to_name'  => 'Bob Bloom',
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | SUBJECT email
+    |--------------------------------------------------------------------------
+    |
+    | Specify the subject of the contact email.
+    |
+    |
+    */
+    'subject_email' => 'Contact Form Message',
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Thank you page
+    |--------------------------------------------------------------------------
+    |
+    | Do you want to specify a custom thank you page? Then specify the NAMED ROUTE here.
+    |
+    | Use the default thank you page = blank
+    |
+    |
+    */
+    'contact_form_thank_you_named_route' => "",
+    //'contact_form_thank_you_named_route' => 'contact_form_thank_you',
+
 
 ];
 
