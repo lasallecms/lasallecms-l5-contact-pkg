@@ -1,4 +1,6 @@
-<?php namespace Lasallecms\Contact;
+<?php
+
+namespace Lasallecms\Contact;
 
 /**
  *
@@ -37,8 +39,8 @@ use Illuminate\Support\ServiceProvider;
  *
  * @author Bob Bloom <info@southlasalle.com>
  */
-class ContactServiceProvider extends ServiceProvider {
-
+class ContactServiceProvider extends ServiceProvider
+{
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -56,16 +58,16 @@ class ContactServiceProvider extends ServiceProvider {
     {
         $this->setupConfiguration();
 
+        //$this->setupMigrations();
+        //$this->setupSeeds();
+
         $this->setupRoutes($this->app->router);
 
         //$this->setupTranslations();
 
         $this->setupViews();
 
-        //$this->setupAssets();
-
-        //$this->setupMigrations();
-        //$this->setupSeeds();
+        $this->setupAssets();
     }
 
 
@@ -114,9 +116,6 @@ class ContactServiceProvider extends ServiceProvider {
     }
 
 
-
-
-
     /**
      * Register the service provider.
      *
@@ -141,6 +140,7 @@ class ContactServiceProvider extends ServiceProvider {
 
     }
 
+
     /**
      * Define the routes for the application.
      *
@@ -155,6 +155,7 @@ class ContactServiceProvider extends ServiceProvider {
         });
 
     }
+
 
     /**
      * Define the views for the application.
@@ -180,6 +181,20 @@ class ContactServiceProvider extends ServiceProvider {
     public function provides()
     {
         return array('lasallecmscontact');
+    }
+
+
+    /**
+     * Define the assets for the application.
+     *
+     * @return void
+     */
+    public function setupAssets()
+    {
+        $this->publishes([
+            __DIR__.'/../public' => public_path('packages/lasallecmscontact/'),
+        ]);
+
     }
 
 

@@ -104,15 +104,6 @@ class ContactController extends FrontendBaseController
         $input['comment'] = $this->quickSanitize($input['comment']);
 
 
-        echo Config::get('lasallecmscontact.from_email');
-        echo " and ".Config::get('lasallecmscontact.from_name');
-        echo " and ".Config::get('lasallecmscontact.to_email');
-        echo " and ".Config::get('lasallecmscontact.to_name');
-        echo " and ".Config::get('lasallecmscontact.subject_email');
-
-
-
-
         Mail::send('lasallecmscontact::email', $input, function($message)
         {
             $message->from(Config::get('lasallecmscontact.from_email'), Config::get('lasallecmscontact.from_name'));
