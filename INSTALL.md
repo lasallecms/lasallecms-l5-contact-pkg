@@ -9,7 +9,7 @@ Contact form for LaSalle Content Management System
 ```
 {
     "require": {
-        "lasallecms/contact": "0.9.*",
+        "lasallecms/contact": "1.*",
     }
 }
 ```
