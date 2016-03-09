@@ -52,11 +52,9 @@ class ContactController extends FrontendBaseController
      *
      * @return Response
      */
-    public function index()
-    {
+    public function index() {
         return view('lasallecmscontact::contact_form');
     }
-
 
 
     /**
@@ -64,9 +62,8 @@ class ContactController extends FrontendBaseController
      *
      * @return Response
      */
-    public function steptwo()
-    {
-        $input = Input::only(array('name', 'email', 'comment'));
+    public function steptwo() {
+        $input = Input::only(array('name', 'email', 'comment', 'to_email'));
 
         $input['name']    = $this->quickSanitize($input['name']);
         $input['email']   = $this->quickSanitize($input['email']);
@@ -82,9 +79,8 @@ class ContactController extends FrontendBaseController
     /**
      * Process the second intermediate contact form.
      */
-    public function send()
-    {
-        $input = Input::only(array('name', 'email', 'comment', 'security-code'));
+    public function send() {
+        $input = Input::only(array('name', 'email', 'comment', 'to_email', 'security-code'));
 
         $input['security-code'] = $this->quickSanitize($input['security-code']);
 
@@ -104,10 +100,19 @@ class ContactController extends FrontendBaseController
         $input['comment'] = $this->quickSanitize($input['comment']);
 
 
-        Mail::send('lasallecmscontact::email', $input, function($message)
+        // The "to_email" comes from the LaSalleCRMContact package. If it contains an email address,
+        // then the contact form was filled out in that package. So, let's figure out the "to" email
+        $to_email = Config::get('lasallecmscontact.to_email');
+        $to_name  = Config::get('lasallecmscontact.to_name');
+        if ($input['to_email'] != "") {
+            $to_email = $input['to_email'];
+            $to_name  = $input['to_name'];
+        }
+
+        Mail::send('lasallecmscontact::email', $input, function($message) use ($to_email, $to_name)
         {
             $message->from(Config::get('lasallecmscontact.from_email'), Config::get('lasallecmscontact.from_name'));
-            $message->to(Config::get('lasallecmscontact.to_email'), Config::get('lasallecmscontact.to_name'))->subject(Config::get('lasallecmscontact.subject_email'));
+            $message->to($to_email, $to_name)->subject(Config::get('lasallecmscontact.subject_email'));
         });
 
         // Redir to confirmation page
@@ -120,8 +125,7 @@ class ContactController extends FrontendBaseController
      *
      * @return Response
      */
-    public function thankyou()
-    {
+    public function thankyou() {
         if (Config::get('lasallecmscontact.contact_form_thank_you_named_route') != "") {
 
             return Redirect::route(Config::get('lasallecmscontact.contact_form_thank_you_named_route'));
@@ -131,15 +135,13 @@ class ContactController extends FrontendBaseController
     }
 
 
-
     /**
      * A quick sanitize
      *
      * @param   string    $input
      * @return  string
      */
-    public function quickSanitize($input)
-    {
+    public function quickSanitize($input) {
         $input = trim($input);
         $input = strip_tags($input);
 

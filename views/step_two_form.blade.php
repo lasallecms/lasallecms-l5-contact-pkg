@@ -44,11 +44,11 @@
             {!! Form::open(['route' => 'contact-processing.send', 'class' => 'form form-inline' ]) !!}
 
 
-            {!! Form::hidden('name', $input['name']) !!}
-            {!! Form::hidden('email', $input['email']) !!}
-            {!! Form::hidden('comment', $input['comment']) !!}
-
-
+            {!! Form::hidden('name',     $input['name']) !!}
+            {!! Form::hidden('email',    $input['email']) !!}
+            {!! Form::hidden('comment',  $input['comment']) !!}
+            {!! Form::hidden('to_email', $input['to_email']) !!}
+            {!! Form::hidden('to_name',  $input['to_name']) !!}
 
 
             <div style="margin-bottom: 25px; margin-left: 25px; margin-top: 25px;" class="input-group">

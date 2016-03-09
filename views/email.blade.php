@@ -1,4 +1,4 @@
-Well, Hello! You have a message sent via your LaSalleMart.com contact page.
+Well, Hello! You have a message sent via your contact page.
 <br /><br />
 Name is {{ $name }}
 <br /><br />
