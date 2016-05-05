@@ -80,7 +80,7 @@ class ContactController extends FrontendBaseController
      * Process the second intermediate contact form.
      */
     public function send() {
-        $input = Input::only(array('name', 'email', 'comment', 'to_email', 'security-code'));
+        $input = Input::only(array('name', 'email', 'comment', 'to_email', 'to_name', 'security-code'));
 
         $input['security-code'] = $this->quickSanitize($input['security-code']);
 
