@@ -63,7 +63,7 @@ class ContactController extends FrontendBaseController
      * @return Response
      */
     public function steptwo() {
-        $input = Input::only(array('name', 'email', 'comment', 'to_email'));
+        $input = Input::only(array('name', 'email', 'comment', 'to_email', 'to_name'));
 
         $input['name']    = $this->quickSanitize($input['name']);
         $input['email']   = $this->quickSanitize($input['email']);
